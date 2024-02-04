@@ -1,0 +1,30 @@
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      database: 1
+      port: 6379
+      password:
+      timeout: 250ms
+      lettuce:
+        pool:
+          min-idle: 0
+          max-idle: 8
+          max-active: 8
+          max-wait: -1ms
+  datasource:
+    url: jdbc:mysql://localhost:3306/conan?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+knife4j:
+  enable: true
+  setting:
+    swagger-model-name: 数据模型
+    enable-version: true
+    enable-footer: false
+
