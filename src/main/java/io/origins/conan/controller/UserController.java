@@ -27,4 +27,19 @@ public class UserController {
         }
         return R.fail("用户名或密码错误");
     }
+
+    /**
+     * 注册
+     */
+    @GetMapping("/register")
+    public R register(@RequestParam String username, @RequestParam String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        User register = userService.register(user);
+        if (register == null) {
+            return R.fail("注册失败");
+        }
+        return R.success("注册成功");
+    }
 }
