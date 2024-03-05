@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 @SpringBootApplication
 @EnableCaching
@@ -22,6 +23,7 @@ public class ConanApplication {
         SpringApplication.run(ConanApplication.class, args);
     }
 
+
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext context) {
         return args -> {
@@ -31,8 +33,9 @@ public class ConanApplication {
                 log.info("{}:{}", k, v.getClass().getName());
                 log.info("缓存：{}", v.getCacheNames());
             });
-
+            new Semaphore(0).acquire();
         };
     }
+
 
 }
