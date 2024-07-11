@@ -1,30 +1,23 @@
 package io.origins.conan.demo;
 
+
+import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+
 public class CounterTest {
+    static Integer magicNum;
+
     public static void main(String[] args) {
-
-        SimpleCounter simpleCounter = new SimpleCounter();
-
-        Thread thread1 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                simpleCounter.increment();
-            }
-        });
-
-        Thread thread = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                simpleCounter.increment();
-            }
-        });
-        thread.start();
-        thread1.start();
-
-        try {
-            thread.join();
-            thread1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (magicNum == 42) {
+            System.out.println(1);
         }
-        System.out.println(simpleCounter.getValue());
+
+    }
+
+    @Test
+    public void test1() {
+        HashMap<String, String> map = new HashMap<>();
+        map.forEach((k, v) -> System.out.println(k + " " + v));
     }
 }

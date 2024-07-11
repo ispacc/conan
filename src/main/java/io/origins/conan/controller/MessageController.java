@@ -1,6 +1,6 @@
 package io.origins.conan.controller;
 
-import io.origins.conan.common.rest.R;
+import io.origins.conan.common.rest.RestResp;
 import io.origins.conan.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,15 +19,15 @@ public class MessageController {
      * 发送消息
      */
     @GetMapping("/send")
-    public R send(@RequestParam String message) {
-        return R.success(messageService.send(message));
+    public RestResp send(@RequestParam String message) {
+        return RestResp.success(messageService.send(message));
     }
 
     /**
      * 接收消息
      */
     @GetMapping("/receive")
-    public R receive() {
-        return R.success(messageService.receive());
+    public RestResp receive() {
+        return RestResp.success(messageService.receive());
     }
 }

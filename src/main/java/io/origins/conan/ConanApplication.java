@@ -1,17 +1,18 @@
 package io.origins.conan;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 @SpringBootApplication
 @EnableCaching
@@ -20,7 +21,8 @@ import java.util.concurrent.Semaphore;
 public class ConanApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConanApplication.class, args);
+        ConfigurableApplicationContext ioc = SpringApplication.run(ConanApplication.class, args);
+        ThreadLocal<ConfigurableListableBeanFactory> configurableListableBeanFactoryThreadLocal = ThreadLocal.withInitial(ioc::getBeanFactory);
     }
 
 
@@ -33,9 +35,7 @@ public class ConanApplication {
                 log.info("{}:{}", k, v.getClass().getName());
                 log.info("缓存：{}", v.getCacheNames());
             });
-            new Semaphore(0).acquire();
         };
     }
-
 
 }
