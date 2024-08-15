@@ -10,7 +10,7 @@ spring:
       server-addr: 127.0.0.1:8848
   config:
     import:
-      - nacos:canon-admin.properties?refreshEnabled=true
+      - nacos:conan-admin.yaml?refreshEnabled=true
 management:
   endpoint:
     health:

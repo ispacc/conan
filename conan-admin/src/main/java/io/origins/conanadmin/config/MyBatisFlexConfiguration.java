@@ -5,9 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Slf4j(topic = "SQL EXEC")
+@Slf4j(topic = "sql")
 public class MyBatisFlexConfiguration {
-
 
     public MyBatisFlexConfiguration() {
         //开启审计功能

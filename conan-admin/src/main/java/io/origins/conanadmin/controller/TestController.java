@@ -1,10 +1,9 @@
 package io.origins.conanadmin.controller;
 
-import io.origins.conanadmin.mapper.UserMapper;
-import io.origins.conanadmin.model.NacosConfigInfo;
-import io.origins.conanadmin.pojo.User;
+import io.origins.conanadmin.config.WxConfigProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class TestController {
-    private final NacosConfigInfo nacosConfigInfo;
-
-    private final UserMapper userMapper;
+    private final WxConfigProperties wxConfigProperties;
 
     @GetMapping("/test")
-    public int test1() {
-        User user = new User();
-        user.setPassword("123456");
-        user.setUsername("test111");
-        int insert = userMapper.insert(user);
-        return insert;
+    public String test1() {
+        // 暂停 5 秒
+        return "test";
+    }
+
+    @PostMapping("/search")
+    public String test2() {
+        return "search";
     }
 }

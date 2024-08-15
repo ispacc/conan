@@ -12,8 +12,8 @@ import java.net.UnknownHostException;
  * 控制台输出 knife4j 接口文档地址
  **/
 @Configuration
-@Slf4j
-public class Knife4jConfig implements ApplicationListener<WebServerInitializedEvent> {
+@Slf4j(topic = "knife4j")
+public class Knife4jConfiguration implements ApplicationListener<WebServerInitializedEvent> {
 
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
