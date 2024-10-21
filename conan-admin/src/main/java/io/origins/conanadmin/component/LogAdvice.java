@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Slf4j
 public class LogAdvice {
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
     public void getTime() {
     }
 
@@ -47,6 +47,6 @@ public class LogAdvice {
 
     @After("getTime()")
     public void after() {
-        log.info(LocalDateTime.now() + " - After method execution");
+        log.info("{} - After method execution", LocalDateTime.now());
     }
 }

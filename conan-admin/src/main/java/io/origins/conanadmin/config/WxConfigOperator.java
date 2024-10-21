@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class WxConfigOperator {
-
     private final WxConfigProperties wxConfigProperties;
 
     @Bean
