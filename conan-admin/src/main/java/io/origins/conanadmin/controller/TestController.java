@@ -1,7 +1,9 @@
 package io.origins.conanadmin.controller;
 
 import io.origins.conanadmin.config.WxConfigProperties;
+import io.origins.conanadmin.model.TestDemo;
 import io.origins.conanadmin.pojo.User;
+import io.origins.conancommon.resp.ResultData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +27,15 @@ public class TestController {
     private final Map<String, SseEmitter> sseCache = new ConcurrentHashMap<>();
 
     @GetMapping("/test")
-    public String test1() {
+    public Object test1() {
         // 暂停 5 秒
-        return "test";
+        TestDemo test = TestDemo.builder().name("test").age(1).build();
+        return test;
     }
 
     @PostMapping("/search")
-    public String test2() {
-        return "search";
+    public ResultData<?> test2() {
+        return ResultData.success("test");
     }
 
     @PostMapping("/setRedis")
