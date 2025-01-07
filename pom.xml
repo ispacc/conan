@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.3.2</version>
     </parent>
 
     <groupId>io.origins.conan</groupId>
@@ -37,7 +37,7 @@
         <sa-token-sso.version>1.37.0</sa-token-sso.version>
         <encoder.version>1.2.3</encoder.version>
         <rocketmq-client-java-version>5.0.5</rocketmq-client-java-version>
-        <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2023.0.3.2</spring-cloud-alibaba.version>
         <mybatis-flex.version>1.9.5</mybatis-flex.version>
     </properties>
 
